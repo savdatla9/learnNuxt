@@ -1,84 +1,39 @@
 <script setup>
-const id = ref(1)
-const { data: quote, pending, error } = await useFetch(() => `https://dummyjson.com/quotes/${id.value?id.value:1}`, {
-  transform: (data) => data,
-  watch: [id],
-})
-const prev = () => {
-  if (id.value === 1) {
-    id.value = 1
-  }else{
-    id.value--
-  }
-}
+import { Home } from 'lucide-vue-next'
+import { Button } from '@/components/ui/button'
+import { Card, CardTitle } from '@/components/ui/card'
 
+const { data } = await useFetch(`https://dummyjson.com/quotes/random`, {
+  method: 'get',
+})
 </script>
 
 <template>
-  <div>
-    <button @click="prev()">
-      Back
-    </button>
-    -
-    <button @click="id++">
-      Next
-    </button>
-
-    <p v-if="pending">
-      Fetching...
-    </p>
-    <pre v-else-if="error">Could not load quote: {{ error.data }}</pre>
-    <figure
-      v-else
-      class="card"
-    >
-      <h3 class="m-4">
-        " {{ quote.quote }} "
-      </h3>
-      <span class="m-4">
-        &mdash; {{ quote.author }}
-      </span>
-    </figure>
-    <NuxtLink
-      class="underline"
-      to="/products"
-    >
-      Product's Page
-    </NuxtLink>
-    <br /><br />
-    <NuxtLink
-      class="underline"
-      to="/about"
-    >
-      About Page
-    </NuxtLink>
-    <br /><br />
-    <NuxtLink
-      class="underline"
-      to="/"
-    >
-      Back to Home
-    </NuxtLink>
+  <div class="cApp">
+    <Card class="m-2">
+      <CardTitle class="text-center mb-4 underline">Random Quote</CardTitle>
+      
+      <h1 class="text-xxl px-2.5 flex flex-row flex-wrap text-center">
+        <!-- <Quote class="w-4 h-4 rotate-180" /> -->
+        {{ data.quote }}
+      </h1>
+      
+      <div class="mr-12 text-right italic">
+        &mdash; {{ data.author }}
+      </div>
+    </Card>
   </div>
 </template>
 
 <style scoped>
-.card {
-  border: 1px solid #b9e39e;
-  padding: 1rem;
-  background-color: whitesmoke;
-  border-radius: 9px;
-} 
-.card h3 {
-  font-size: 20px;
-  font-style: italic;
-}
-.card span {
-  font-size: 16px;
-  font-weight: bold;
-  color: green;
-}
-a{
-  color: #333
-}
+  .cApp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  a{
+    /* color: #333 */
+    text-decoration: none;
+  }
 </style>

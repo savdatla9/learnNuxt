@@ -1,19 +1,18 @@
-<!-- <script setup lang="ts">
-  const definePageMeta({
-    pageTransition: {
-      name: 'rotate',
-    },
-})
-</script> -->
+<script setup>
+
+</script>
 
 <template>
   <div class="back">
-    <h1>About page</h1>
-    <NuxtLink to="/products">Product's Page</NuxtLink>
-    <br /><br />
-    <NuxtLink to="/">Home page</NuxtLink>
-    <br /><br />
-    <NuxtLink to="/quote">Quote page</NuxtLink>
+    <h1 class="text-[25px] font-semibold">About page</h1>
+
+    <p class="mt-3">
+      This is a simple Nuxt 4 application demonstrating fetching data from an external API and displaying it in different views.  <br/> <br/>
+      You can navigate to the Quote page to see a random quote fetched from a dummy API. <br/> <br/>
+      You can navigate to the Products page to see a list of products fetched from a dummy API. <br/>
+      Use the buttons provided to switch between grid and table views on the Products page.  <br/> <br/>
+      Lastly, unsplash API is used to fetch my account images for display. <br/> <br/>
+    </p>
   </div>
 </template>
 
@@ -26,7 +25,7 @@
 }
 
 a{
-  color: #2c3e50;
+  /* color: #2c3e50; */
   font-weight: bold;
   text-decoration: none;
 }

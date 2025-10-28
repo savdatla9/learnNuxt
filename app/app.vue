@@ -1,24 +1,97 @@
+<script setup>
+import { Sun, MoonStar, MonitorSmartphone } from 'lucide-vue-next'
+import { Button } from '@/components/ui/button'
+import { 
+  DropdownMenu, DropdownMenuContent, 
+  DropdownMenuItem, DropdownMenuTrigger 
+} from '@/components/ui/dropdown-menu'
+import AppSidebar from '@/components/AppSidebar.vue'
+import { SidebarProvider, SidebarTrigger, SidebarContent } from '@/components/ui/sidebar'
+
+const colorMode = useColorMode()
+</script>
+
 <template>
-  <div class="hello">
-    <h2>Hello Nuxt !</h2>
-    <nuxt-page />
-  </div>
+  <SidebarProvider>
+    <AppSidebar />
+    <main>
+  
+      <div class="hello">
+        <SidebarTrigger />&nbsp;
+
+        <h2>
+          Hello Nuxt !  &NonBreakingSpace;
+
+          <DropdownMenu>
+            <DropdownMenuTrigger as-child>
+              <Button variant="outline" size='sm'>
+                <Sun v-if="colorMode.preference==='light'" class="h-[1.2rem] w-[1.2rem] transition-all" />
+
+                <MoonStar v-else-if="colorMode.preference==='dark'" class="absolute h-[1.2rem] w-[1.2rem] transition-all" />
+
+                <MonitorSmartphone v-else class="absolute h-[1.2rem] w-[1.2rem] transition-all" />
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem @click="colorMode.preference = 'light'">
+                Light
+              </DropdownMenuItem>
+
+              <DropdownMenuItem @click="colorMode.preference = 'dark'">
+                Dark
+              </DropdownMenuItem>
+              
+              <DropdownMenuItem @click="colorMode.preference = 'system'">
+                System
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </h2>
+      </div>
+
+      <div class="bott">
+        <RouterView />
+      </div>
+    </main>
+  </SidebarProvider>
 </template>
 
 <style scoped>
 .hello {
   font-family: Arial, Helvetica, sans-serif;
-  /* font-size: 18px; */
-  padding: 2rem;
+  padding: 1rem;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-content: center;
+  height: 3vh;
+}
+
+.bott{
+  margin-top: 3rem;
   text-align: center;
+  min-height: 80vh;
+  padding: 4.5rem;
+  width: 99vw;
 }
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.2s;
+
+@media screen and (max-width: 768px) {
+  .bott{
+    padding: 1rem;
+    margin-top: 4rem;
+    min-height: 70vh;
+    width: 100vw;
+  }
 }
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
-  filter: blur(1rem);
+
+@media screen and (max-width: 1440px) and (min-width: 769px) {
+  .bott{
+    padding: 1rem;
+    margin-top: 2rem;
+    min-height: vh;
+    width: 97vw;
+  }
 }
 </style>

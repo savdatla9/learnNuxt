@@ -1,37 +1,49 @@
 <script setup>
-  const count = useState('counter', () => Math.round(Math.random() * 1000))
+  import { Label } from "@/components/ui/label"
+  import {
+    NumberField,
+    NumberFieldContent,
+    NumberFieldDecrement,
+    NumberFieldIncrement,
+    NumberFieldInput,
+  } from "@/components/ui/number-field"
+  import { Home } from 'lucide-vue-next'
+  import { ButtonGroup } from '@/components/ui/button-group'
+  import { Button } from '@/components/ui/button'
+  // import { Card } from '~/components/ui/card'
+  import { ref } from "vue"
+
+  const count = ref(Math.round(Math.random() * 1000))
 </script>
 
 <template>
-  <div>
+  <div class="cApp">
     <h1>Home page</h1>
 
-    <div class="cApp">
-      <h3>Counter</h3>
-      <button @click="count++">+</button>&nbsp;
-      <span>{{ count }}</span>&nbsp;
-      <button @click="count--">-</button>
+    <div>
+      <NumberField id="age" :default-value="count" :min="0">
+        <Label for="age" style="text-align: center;">Counter</Label>
+        <NumberFieldContent>
+          <NumberFieldDecrement />
+          <NumberFieldInput />
+          <NumberFieldIncrement />
+        </NumberFieldContent>
+      </NumberField>
     </div>
-    <br />
-    <NuxtLink to="/about">About page</NuxtLink>
-    <br />
-    <br />
-    <NuxtLink to="/products">Product's page</NuxtLink>
-    <br />
-    <br />
-    <NuxtLink to="/quote">Quote page</NuxtLink>
   </div>
 </template>
 
 <style scoped> 
 .cApp {
-  border: 2px solid #42b983;
-  border-radius: 10px;
-  padding: 0.5rem;
-  margin: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 a{
-  color: #789;
+  /* color: #333; */
+  font-weight: bold;
   text-decoration: none;
 }
 a:hover{
