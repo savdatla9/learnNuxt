@@ -38,8 +38,9 @@ export default defineNuxtConfig({
     
     public: {
       apiUnsplash: process.env.NUXT_PUBLIC_UNSPLASH_API_URL || 'http://localhost:3000',
-      apiKey: process.env.NUXT_PUBLIC_UNSPLASH_ACCESS_KEY || '',
+      apiKey: process.env.NUXT_PUBLIC_UNSPLASH_ACCESS_KEY || 'KEs_cV4oWxyDdP4diZCTvHbkWHriXp0CvhIMDA6MgRs',
       username: process.env.NUXT_UNSPLASH_USERNAME || 'dsav96',
+      mapplsToken: process.env.NUXT_PUBLIC_MAPPIS || 'jifsvjfjizyhvifgqxuaiinxwtklotnyejxe'
     }
   }
 })

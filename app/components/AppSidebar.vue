@@ -4,6 +4,7 @@ import {
     MessageSquareQuote,  
     Barcode, BookImage,  
     ChefHat, Upload,
+    MapPinned
 } from "lucide-vue-next"
 import {
   Sidebar,
@@ -51,28 +52,33 @@ const items = [
     title: "File Upload",
     url: "/files",
     icon: Upload,
+  },
+  {
+    title: "Map MappIs ",
+    url: "/maps",
+    icon: MapPinned,
   },  
 ];
 </script>
 
 <template>
     <Sidebar>
-        <SidebarContent>
-            <SidebarGroup>
-                <SidebarGroupLabel>App</SidebarGroupLabel>
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                            <SidebarMenuItem v-for="item in items" :key="item.title">
-                                <SidebarMenuButton asChild>
-                                    <a :href="item.url">
-                                        <component :is="item.icon" />
-                                        <span>{{item.title}}</span>
-                                    </a>
-                                </SidebarMenuButton>
-                            </SidebarMenuItem>
-                        </SidebarMenu>
-                </SidebarGroupContent>
-            </SidebarGroup>
-        </SidebarContent>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>App</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem v-for="item in items" :key="item.title">
+                  <SidebarMenuButton asChild>
+                    <a :href="item.url">
+                      <component :is="item.icon" />
+                      <span>{{item.title}}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+      </SidebarContent>
     </Sidebar>
 </template>

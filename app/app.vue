@@ -9,27 +9,32 @@ import AppSidebar from '@/components/AppSidebar.vue'
 import { SidebarProvider, SidebarTrigger, SidebarContent } from '@/components/ui/sidebar'
 
 const colorMode = useColorMode()
+
+// useHead({
+//   link: [
+//     { rel: 'stylesheet', href: 'https://sdk.mappls.com/map/sdk/web/mappls.css' }
+//   ]
+// })
 </script>
 
 <template>
   <SidebarProvider>
     <AppSidebar />
     <main>
-  
       <div class="hello">
         <SidebarTrigger />&nbsp;
 
-        <h2>
-          Hello Nuxt !  &NonBreakingSpace;
+        <h2 class="flex flex-row">
+          <div class="text-[20px] font-semibold">Hello Nuxt !&nbsp;&nbsp;</div>
 
           <DropdownMenu>
             <DropdownMenuTrigger as-child>
-              <Button variant="outline" size='sm'>
-                <Sun v-if="colorMode.preference==='light'" class="h-[1.2rem] w-[1.2rem] transition-all" />
+              <Button variant="outline" size='icon'>
+                <Sun v-if="colorMode.preference==='light'" class="h-auto w-[1.2rem] transition-all" />
 
-                <MoonStar v-else-if="colorMode.preference==='dark'" class="absolute h-[1.2rem] w-[1.2rem] transition-all" />
+                <MoonStar v-else-if="colorMode.preference==='dark'" size={25} class="absolute h-[1.2rem] w-[1.2rem] transition-all" />
 
-                <MonitorSmartphone v-else class="absolute h-[1.2rem] w-[1.2rem] transition-all" />
+                <MonitorSmartphone v-else size={25} class="absolute h-[1.2rem] w-[1.2rem] transition-all" />
               </Button>
             </DropdownMenuTrigger>
 
@@ -70,10 +75,10 @@ const colorMode = useColorMode()
 }
 
 .bott{
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   text-align: center;
-  min-height: 80vh;
-  padding: 4.5rem;
+  min-height: 85vh;
+  padding: 2.5rem;
   width: 99vw;
 }
 

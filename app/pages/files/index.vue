@@ -148,13 +148,12 @@
 
     async function onPick(e) {
         const file = e.target?.files;
-        console.log(e.target?.files[0])
+        
         if (!file) return;
 
         for(let i=0; i<file.length; i++){
             originalSize.value.push(file[i].size);
 
-            // You can tune these numbers
             optimizedBlob.value = await optimizeImageByPercent(file[i], { 
                 scale: 1, quality: 0.7, 
                 preferType: file[i].type
@@ -205,7 +204,7 @@
 </script>
 
 <template>
-    <input name="fileupload" type="file" accept="image/*" class="border-2 p-4 rounded-[5px]" @change="onPick" />
+    <input name="fileupload" type="file" accept="image/*" class="border-2 p-4 rounded-[5px] m-2" @change="onPick" />
 
     <div v-if="previewUrls.length>0" class="flex flex-wrap mt-1.5 gap-3.5">
         <div v-for="(url, index) in previewUrls" @click="()=>showImg(index)" :key="index" class="border-2 p-1.5 rounded-[10px] items-center w-[250px] h-auto">
