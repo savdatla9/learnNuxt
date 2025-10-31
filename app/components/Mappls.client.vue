@@ -1,12 +1,9 @@
 <script setup>
 import { ref, watch } from 'vue'
-import { Button } from '@/components/ui/button'
 
   const logo = "https://raw.githubusercontent.com/MapmyIndia/mapmyindia-interactive-map-js-api/refs/heads/master/09-mapmyindia-maps-api-animated-markers-polyline-example/images/car.png"
-  const count = ref(7.5)
+  const count = ref(7.5)  // watch(count)
   const { $mapplsLoader } = useNuxtApp()
-
-  watch(count)
 
   var map, polyLine;
 
@@ -56,18 +53,16 @@ import { Button } from '@/components/ui/button'
           repeat: true,
         },
       });
-
-      console.log('map event:', e)
     });
   });
 </script>
 
 <template>
-  <div class="flex flex-row justify-evenly -mt-5 p-2">
+  <!-- <div class="flex flex-row justify-evenly -mt-5 p-2">
     <Button @click="count++">Speed ++</Button>
 
     <Button @click="count--">Speed --</Button>
-  </div>
+  </div> -->
 
   <div id="map" style="height:80vh;width:100%"></div>
 </template>

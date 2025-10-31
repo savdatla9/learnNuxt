@@ -213,10 +213,10 @@
             <p>before: {{ humanSize(originalSize[index]) }} → now: {{ humanSize(optimizedSize[index]) }}</p>
         </div>
         <div>
-            <vue-easy-lightbox
+            <VueEasyLightbox
                 :visible="visibleRef" :imgs="previewUrls" 
                 :index="indexRef" @hide="onHide"
-            ></vue-easy-lightbox>
+            ></VueEasyLightbox>
         </div>
     </div>
 </template>

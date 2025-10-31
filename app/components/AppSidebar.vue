@@ -4,7 +4,7 @@ import {
     MessageSquareQuote,  
     Barcode, BookImage,  
     ChefHat, Upload,
-    MapPinned
+    MapPinned, Torus,
 } from "lucide-vue-next"
 import {
   Sidebar,
@@ -38,6 +38,11 @@ const items = [
     url: "/quote",
     icon: MessageSquareQuote,
   },  
+  {
+    title: "3D View in Nuxt",
+    url: "/3d",
+    icon: Torus,
+  },
   {
     title: "UnSplash",
     url: "/unsplash",

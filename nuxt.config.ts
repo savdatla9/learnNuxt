@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@vueuse/nuxt', 'shadcn-nuxt', '@nuxtjs/color-mode', 'nuxt-easy-lightbox'],
+  modules: ['@vueuse/nuxt', 'shadcn-nuxt', '@nuxtjs/color-mode', 'nuxt-easy-lightbox', '@tresjs/nuxt'],
   shadcn: {
     prefix: '',
     componentDir: './components/ui',
